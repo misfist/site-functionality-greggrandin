@@ -8,7 +8,7 @@
 namespace Site_Functionality\App\Taxonomies;
 
 use Site_Functionality\Common\Abstracts\Base;
-use Site_Functionality\App\Taxonomies\Publication_Type;
+use Site_Functionality\App\Taxonomies\Genre;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,7 +33,7 @@ class Taxonomies extends Base {
 	 * @return void
 	 */
 	public function init(): void {
-		new Publication_Type( $this->settings );
+		new Genre( $this->settings );
 	}
 
 }

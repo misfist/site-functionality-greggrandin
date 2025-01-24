@@ -8,8 +8,7 @@
 namespace Site_Functionality\App\Post_Types;
 
 use Site_Functionality\Common\Abstracts\Base;
-use Site_Functionality\App\Post_Types\Publication;
-use Site_Functionality\App\Post_Types\Issue;
+use Site_Functionality\App\Post_Types\Book;
 // use \TenUp\ContentConnect\Plugin;
 
 // Exit if accessed directly.
@@ -35,24 +34,7 @@ class Post_Types extends Base {
 	 * @return void
 	 */
 	public function init(): void {
-		new Publication( $this->settings );
-
-		\add_filter( 'page-links-to-post-types', array( $this, 'external_links' ) );
-	}
-
-	/**
-	 * Modify Post Types
-	 * If post type supports $feature, enable Page Links To
-	 * 
-	 * @link https://wordpress.org/plugins/page-links-to/
-	 * @link https://github.com/markjaquith/page-links-to/blob/master/classes/plugin.php#L517-L519
-	 *
-	 * @param array $post_types
-	 * @return array
-	 */
-	public function external_links( $post_types ) : array {
-		$feature = 'external-links';
-		return \get_post_types_by_support( $feature );
+		new Book( $this->settings );
 	}
 
 }

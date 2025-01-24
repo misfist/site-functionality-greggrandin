@@ -14,24 +14,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Publication extends Post_Type {
+class Book extends Post_Type {
 
 	/**
 	 * Post_Type data
 	 */
 	public static $post_type = array(
-		'id'          => 'publication',
-		'slug'        => 'publication',
-		'menu'        => 'Publication',
-		'title'       => 'Publications',
-		'singular'    => 'Publication',
+		'id'          => 'book',
+		'slug'        => 'book',
+		'menu'        => 'Book',
+		'title'       => 'Books',
+		'singular'    => 'Book',
 		'icon'        => 'dashicons-book-alt',
 		'taxonomies'  => array(
-			'publication_type'
+			'genre',
+			'category'
 		),
 		'has_archive' => false,
 		'with_front'  => false,
-		'rest_base'   => 'publications',
+		'rest_base'   => 'books',
 		'supports'    => array( 
 			'title', 
 			'editor', 
@@ -76,33 +77,9 @@ class Publication extends Post_Type {
 	public function register_meta(): void {}
 
 	/**
-	 * Modify Post Content
-	 *
-	 * @link https://developer.wordpublication.org/reference/hooks/the_content/
-	 *
-	 * @param string $content
-	 * @return string $content
-	 */
-	public function modify_post_content( $content ): string {
-		return $content;
-	}
-
-	/**
-	 * Modify Post Title
-	 *
-	 * @link https://developer.wordpublication.org/reference/hooks/the_title/
-	 *
-	 * @param string $content
-	 * @return string $content
-	 */
-	public function modify_post_title( $title ): string {
-		return $title;
-	}
-
-	/**
 	 * Register custom query vars
 	 *
-	 * @link https://developer.wordpublication.org/reference/hooks/query_vars/
+	 * @link https://developer.wordbook.org/reference/hooks/query_vars/
 	 *
 	 * @param array $vars The array of available query variables
 	 */

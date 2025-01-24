@@ -16,23 +16,22 @@ use Site_Functionality\Common\Abstracts\Taxonomy;
  * @package Site_Functionality\App\Taxonomies
  * @since 1.0.0
  */
-class Publication_Type extends Taxonomy {
+class Genre extends Taxonomy {
 
 	/**
 	 * Taxonomy data
 	 */
 	public static $taxonomy = array(
-		'id'          => 'publication_type',
-		'title'       => 'Publication Types',
-		'singular'    => 'Publication Type',
-		'menu'        => 'Types',
+		'id'          => 'genre',
+		'title'       => 'Genres',
+		'singular'    => 'Genre',
+		'menu'        => 'Genres',
 		'post_types'  => array( 
-			'publication'
+			'book'
 		),
 		'has_archive' => false,
-		'archive'     => false,
+		'archive'     => 'genres',
 		'with_front'  => false,
-		'rest'        => 'publication-types',
 	);
 
 	/**
