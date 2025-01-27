@@ -22,7 +22,7 @@ class Book extends Post_Type {
 	public static $post_type = array(
 		'id'          => 'book',
 		'slug'        => 'book',
-		'menu'        => 'Book',
+		'menu'        => 'Books',
 		'title'       => 'Books',
 		'singular'    => 'Book',
 		'icon'        => 'dashicons-book-alt',
