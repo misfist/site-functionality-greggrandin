@@ -1,0 +1,45 @@
+name: 🚀 Deploy Staging - FTP
+on: 
+  push:
+    branches:
+      - staging
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+    
+    - name: 📂 FTP File Upload
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        # ftp server
+        server: ${{ secrets.FTP_HOST }}
+        # ftp username
+        username: ${{ secrets.FTP_USER }}
+        # ftp password
+        password: ${{ secrets.FTP_PASSWORD }}
+        # Server port to connect to (read your web hosts docs)
+        # port: # optional
+        # protocol to deploy with - ftp, ftps, or ftps-legacy
+        # protocol: # optional
+        # Folder to upload from, must end with trailing slash 
+        local-dir: ./
+        # Path to upload to on the server. Must end with trailing slash /
+        server-dir: gregoryg26.sg-host.com/public_html/wp-content/themes/greg-grandin/
+        # Path and name of the state file - this file is used to track which files have been deployed
+        # state-name: # optional
+        # Prints which modifications will be made with current config options, but doesnt actually make any changes
+        dry-run: false
+        # Deletes ALL contents of server-dir, even items in excluded with exclude argument
+        # dangerous-clean-slate: # optional
+        # An array of glob patterns, these files will not be included in the publish/delete process
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+        # How verbose should the information be - minimal, standard, or verbose
+        # log-level: # optional
+        # strict or loose
+        # security: # optional
