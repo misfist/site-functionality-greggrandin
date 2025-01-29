@@ -22,11 +22,6 @@ abstract class Post_Type extends Base {
 	public static $post_type;
 
 	/**
-	 * Post Type fields
-	 */
-	public static $fields;
-
-	/**
 	 * Constructor.
 	 *
 	 * @since 1.0.0

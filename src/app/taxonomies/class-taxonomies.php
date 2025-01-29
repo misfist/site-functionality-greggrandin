@@ -33,7 +33,7 @@ class Taxonomies extends Base {
 	 * @return void
 	 */
 	public function init(): void {
-		new Genre( $this->settings );
+		// new Genre( $this->settings );
 	}
 
 }
