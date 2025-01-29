@@ -32,7 +32,7 @@ class Book extends Post_Type {
 			'genre',
 			'category',
 		),
-		'has_archive' => false,
+		'has_archive' => 'books',
 		'with_front'  => false,
 		'rest_base'   => 'books',
 		'supports'    => array(
