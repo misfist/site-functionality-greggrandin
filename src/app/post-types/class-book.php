@@ -38,6 +38,7 @@ class Book extends Post_Type {
 		'supports'    => array(
 			'title',
 			'editor',
+			'excerpt',
 			'author',
 			'thumbnail',
 			'custom-fields',
