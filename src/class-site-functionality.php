@@ -62,11 +62,23 @@ class Site_Functionality {
 	 * @since    1.0.0
 	 */
 	protected function set_locale(): void {
-
 		$plugin_i18n = new I18n();
 
 		add_action( 'init', array( $plugin_i18n, 'load_plugin_textdomain' ) );
 
+		/**
+		 * Set ACF export to use textdomain
+		 *
+		 * @link https://www.advancedcustomfields.com/resources/acf-settings/
+		 */
+		$textdomain = $plugin_i18n::TEXTDOMAIN;
+		add_action(
+			'acf/init',
+			function () use ( $textdomain ) {
+				acf_update_setting( 'l10n_textdomain', $textdomain );
+				acf_update_setting( 'l10n_field_group', $textdomain );
+			}
+		);
 	}
 
 	/**
@@ -81,7 +93,6 @@ class Site_Functionality {
 
 		add_action( 'admin_enqueue_scripts', array( $admin_assets, 'enqueue_styles' ) );
 		add_action( 'admin_enqueue_scripts', array( $admin_assets, 'enqueue_scripts' ) );
-
 	}
 
 	/**
@@ -96,7 +107,6 @@ class Site_Functionality {
 
 		add_action( 'wp_enqueue_scripts', array( $frontend_assets, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $frontend_assets, 'enqueue_scripts' ) );
-
 	}
 
 	/**
@@ -107,7 +117,6 @@ class Site_Functionality {
 	protected function load_dependencies(): void {
 		$post_types = new Post_Types( $this->settings );
 		$taxonomies = new Taxonomies( $this->settings );
-		$blocks	 = new Blocks( $this->settings );
+		$blocks     = new Blocks( $this->settings );
 	}
-
 }

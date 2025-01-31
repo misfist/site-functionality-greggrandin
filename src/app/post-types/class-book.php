@@ -86,6 +86,12 @@ class Book extends Post_Type {
 				'description'       => __( 'The ISBN of the book.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			),
+			'edition'          => array(
+				'label'             => __( 'Edition', 'site-functionality' ),
+				'type'              => 'string',
+				'description'       => __( 'The edition of the book.', 'site-functionality' ),
+				'sanitize_callback' => 'sanitize_text_field',
+			),
 			'pages'            => array(
 				'label'             => __( 'Pages', 'site-functionality' ),
 				'type'              => 'number',
@@ -119,7 +125,7 @@ class Book extends Post_Type {
 		);
 
 		\add_action( 'init', array( $this, 'register_meta' ) );
-		// \add_action( 'acf/init', array( $this, 'register_fields' ) );
+		\add_action( 'acf/include_fields', array( $this, 'register_fields' ) );
 	}
 
 	/**
@@ -127,7 +133,227 @@ class Book extends Post_Type {
 	 *
 	 * @return void
 	 */
-	public function register_fields(): void {}
+	public function register_fields(): void {
+		$fields = array(
+			array(
+				'key'               => 'field_subtitle',
+				'label'             => __( 'Subtitle', 'site-functionality' ),
+				'name'              => 'subtitle',
+				'aria-label'        => '',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 1,
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+			),
+			array(
+				'key'               => 'field_publication_date',
+				'label'             => __( 'Publication Date', 'site-functionality' ),
+				'name'              => 'publication_date',
+				'aria-label'        => '',
+				'type'              => 'date_picker',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'display_format'    => 'm/d/Y',
+				'return_format'     => 'm/d/Y',
+				'first_day'         => 1,
+				'allow_in_bindings' => 1,
+			),
+			array(
+				'key'               => 'field_publisher',
+				'label'             => __( 'Publisher', 'site-functionality' ),
+				'name'              => 'publisher',
+				'aria-label'        => '',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 1,
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+			),
+			array(
+				'key'               => 'field_isbn',
+				'label'             => __( 'ISBN', 'site-functionality' ),
+				'name'              => 'isbn',
+				'aria-label'        => '',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 1,
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+			),
+			array(
+				'key'               => 'field_edition',
+				'label'             => __( 'Edition', 'site-functionality' ),
+				'name'              => 'edition',
+				'aria-label'        => '',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 1,
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+			),
+			array(
+				'key'               => 'field_pages',
+				'label'             => __( 'Pages', 'site-functionality' ),
+				'name'              => 'pages',
+				'aria-label'        => '',
+				'type'              => 'number',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'min'               => 0,
+				'max'               => '',
+				'allow_in_bindings' => 1,
+				'placeholder'       => '',
+				'step'              => 1,
+				'prepend'           => '',
+				'append'            => '',
+			),
+			array(
+				'key'               => 'field_language',
+				'label'             => __( 'Language', 'site-functionality' ),
+				'name'              => 'language',
+				'aria-label'        => '',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 1,
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+			),
+			array(
+				'key'               => 'field_format',
+				'label'             => __( 'Format', 'site-functionality' ),
+				'name'              => 'format',
+				'aria-label'        => '',
+				'type'              => 'text',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'maxlength'         => '',
+				'allow_in_bindings' => 1,
+				'placeholder'       => '',
+				'prepend'           => '',
+				'append'            => '',
+			),
+			array(
+				'key'               => 'field_price',
+				'label'             => __( 'Price', 'site-functionality' ),
+				'name'              => 'price',
+				'aria-label'        => '',
+				'type'              => 'number',
+				'instructions'      => '',
+				'required'          => 0,
+				'conditional_logic' => 0,
+				'wrapper'           => array(
+					'width' => '',
+					'class' => '',
+					'id'    => '',
+				),
+				'default_value'     => '',
+				'min'               => 0,
+				'max'               => '',
+				'allow_in_bindings' => 1,
+				'placeholder'       => '',
+				'step'              => '.01',
+				'prepend'           => '',
+				'append'            => '',
+			),
+		);
+
+		$args = array(
+			'key'                   => 'group_book_details',
+			'title'                 => __( 'Book Details', 'site-functionality' ),
+			'fields'                => $fields,
+			'location'              => array(
+				array(
+					array(
+						'param'    => 'post_type',
+						'operator' => '==',
+						'value'    => self::$post_type['id'],
+					),
+				),
+			),
+			'menu_order'            => 0,
+			'position'              => 'side',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen'        => '',
+			'active'                => true,
+			'description'           => '',
+			'show_in_rest'          => 1,
+		);
+
+		acf_add_local_field_group( $args );
+	}
 
 	/**
 	 * Register Meta
