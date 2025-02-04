@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "title": "Publisher",
   "category": "theme",
-  "icon": "calendar",
+  "icon": "book-alt",
   "description": "The book publisher.",
   "usesContext": [
     "postId",
@@ -13,7 +13,15 @@
   ],
   "example": {},
   "supports": {
-    "html": true
+    "html": true,
+    "color": {
+      "background": true,
+      "text": true,
+      "heading": true
+    },
+    "typography": {
+      "fontSize": true
+    }
   },
   "textdomain": "site-functionality",
   "editorScript": "file:./index.js",

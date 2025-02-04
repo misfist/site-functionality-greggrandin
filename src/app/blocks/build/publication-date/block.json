@@ -13,7 +13,15 @@
   ],
   "example": {},
   "supports": {
-    "html": false
+    "html": true,
+    "color": {
+      "background": true,
+      "text": true,
+      "heading": true
+    },
+    "typography": {
+      "fontSize": true
+    }
   },
   "textdomain": "site-functionality",
   "editorScript": "file:./index.js",
