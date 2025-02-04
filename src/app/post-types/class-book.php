@@ -78,7 +78,7 @@ class Book extends Post_Type {
 				'label'             => __( 'Publisher', 'site-functionality' ),
 				'type'              => 'string',
 				'description'       => __( 'The publisher of the book.', 'site-functionality' ),
-				'sanitize_callback' => 'sanitize_text_field',
+				'sanitize_callback' => 'wp_kses_post',
 			),
 			'isbn'             => array(
 				'label'             => __( 'ISBN', 'site-functionality' ),
@@ -110,12 +110,12 @@ class Book extends Post_Type {
 				'description'       => __( 'The format of the book.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			),
-			'price'            => array(
-				'label'             => __( 'Price', 'site-functionality' ),
-				'type'              => 'number',
-				'sanitize_callback' => 'floatval',
-				'description'       => __( 'The price of the book.', 'site-functionality' ),
-			),
+			// 'price'            => array(
+			// 	'label'             => __( 'Price', 'site-functionality' ),
+			// 	'type'              => 'number',
+			// 	'sanitize_callback' => 'floatval',
+			// 	'description'       => __( 'The price of the book.', 'site-functionality' ),
+			// ),
 			'rating'           => array(
 				'label'             => __( 'Rating', 'site-functionality' ),
 				'type'              => 'number',
