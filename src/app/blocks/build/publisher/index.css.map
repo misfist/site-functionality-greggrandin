@@ -1,0 +1,1 @@
+{"version":3,"file":"publisher/index.css","mappings":";;;AAAA;;;;EAAA,C","sources":["webpack://site-functionality/./src/publisher/editor.scss"],"sourcesContent":["/**\n * The following styles get applied inside the editor only.\n *\n * Replace them with your own styles or remove the file completely.\n */\n\n.wp-block-greg-grandin-subtitle {}\n"],"names":[],"sourceRoot":""}

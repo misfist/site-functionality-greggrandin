@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "site-functionality/buy-buttons",
+	"version": "0.1.0",
+	"title": "Buy Buttons",
+	"category": "theme",
+	"icon": "cart",
+	"description": "Buttons to buy the book.",
+	"allowedBlocks": [
+		"core/button"
+	],
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "core/button",
+				"attributes": {
+					"text": "IndieBound",
+					"url": "#",
+					"linkTarget": "_blank"
+				}
+			},
+			{
+				"name": "core/button",
+				"attributes": {
+					"text": "Amazon",
+					"url": "#",
+					"linkTarget": "_blank"
+				}
+			}
+		]
+	},
+	"supports": {
+		"html": true
+	},
+	"textdomain": "site-functionality",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,1 @@
+console.log("Hello World! (from site-functionality-buy-buttons block)");

@@ -44,13 +44,16 @@ class Blocks extends Base {
 	}
 
 	/**
-     * Registers blocks using metadata from `block.json`.
-     *
-     * @return void
-     */
-    public function register_blocks(): void {
-        register_block_type_from_metadata( __DIR__ . '/build/block' );
-    }
+	 * Registers blocks using metadata from `block.json`.
+	 *
+	 * @return void
+	 */
+	public function register_blocks(): void {
+		register_block_type_from_metadata( __DIR__ . '/build/subtitle' );
+		register_block_type_from_metadata( __DIR__ . '/build/publication-date' );
+		register_block_type_from_metadata( __DIR__ . '/build/publisher' );
+		register_block_type_from_metadata( __DIR__ . '/build/buy-buttons' );
+	}
 
 	/**
 	 * Register block patterns
@@ -85,5 +88,4 @@ class Blocks extends Base {
 	 * @return void
 	 */
 	public function enqueue_blocks_scripts(): void {}
-
 }

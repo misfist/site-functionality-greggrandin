@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "site-functionality/subtitle",
+  "version": "0.1.0",
+  "title": "Subtitle",
+  "category": "theme",
+  "icon": "heading",
+  "description": "The book subtitle.",
+  "usesContext": [
+    "postId",
+    "postType"
+  ],
+  "supports": {
+    "html": true,
+    "color": {
+      "background": true,
+      "text": true,
+      "heading": true
+    },
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "textdomain": "site-functionality",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
