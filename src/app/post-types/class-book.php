@@ -125,7 +125,7 @@ class Book extends Post_Type {
 		);
 
 		\add_action( 'init', array( $this, 'register_meta' ) );
-		\add_action( 'acf/include_fields', array( $this, 'register_fields' ) );
+		// \add_action( 'acf/include_fields', array( $this, 'register_fields' ) );
 	}
 
 	/**
