@@ -21,7 +21,6 @@ import { InnerBlocks, useBlockProps, useInnerBlocksProps } from '@wordpress/bloc
  */
 import './editor.scss';
 
-
 const TEMPLATE = [
 	[ 'core/buttons', 
 		{
@@ -29,7 +28,8 @@ const TEMPLATE = [
 			'layout': {
 				'type':'flex',
 				'orientation':'horizontal',
-				'justifyContent': 'center'
+				'justifyContent': 'center',
+				'flexWrap':'wrap'
 			}
 		},
 		[
