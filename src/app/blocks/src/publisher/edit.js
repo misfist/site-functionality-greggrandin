@@ -54,7 +54,7 @@ export default function Edit(
 			<RichText
 				tagName="p"
 				placeholder={ __( 'Publisher', 'site-functionality' ) }
-				allowedFormats={ [ 'core/italic' ] }
+				allowedFormats={ [ 'core/italic', 'core/link' ] }
 				disableLineBreaks
 				value={ publisher }
 				onChange={ ( value ) =>
