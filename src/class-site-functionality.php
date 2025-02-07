@@ -91,8 +91,8 @@ class Site_Functionality {
 
 		$admin_assets = new Admin_Assets( $this->settings );
 
-		add_action( 'admin_enqueue_scripts', array( $admin_assets, 'enqueue_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $admin_assets, 'enqueue_scripts' ) );
+		// add_action( 'admin_enqueue_scripts', array( $admin_assets, 'enqueue_styles' ) );
+		// add_action( 'admin_enqueue_scripts', array( $admin_assets, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -105,8 +105,8 @@ class Site_Functionality {
 
 		$frontend_assets = new Frontend_Assets( $this->settings );
 
-		add_action( 'wp_enqueue_scripts', array( $frontend_assets, 'enqueue_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $frontend_assets, 'enqueue_scripts' ) );
+		// add_action( 'wp_enqueue_scripts', array( $frontend_assets, 'enqueue_styles' ) );
+		// add_action( 'wp_enqueue_scripts', array( $frontend_assets, 'enqueue_scripts' ) );
 	}
 
 	/**
