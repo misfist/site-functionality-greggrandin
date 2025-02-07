@@ -94,7 +94,7 @@ class Book extends Post_Type {
 			),
 			'pages'            => array(
 				'label'             => __( 'Pages', 'site-functionality' ),
-				'type'              => 'number',
+				'type'              => 'string',
 				'description'       => __( 'The number of pages in the book.', 'site-functionality' ),
 				'sanitize_callback' => 'absint',
 			),
