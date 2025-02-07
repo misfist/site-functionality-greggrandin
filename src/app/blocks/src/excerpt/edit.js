@@ -35,33 +35,36 @@ export default function Edit(
 		context: { postType, postId }
 	}
 ) {
-	const [ meta, updateMeta ] = useEntityProp(
+	const [ postExcerpt, updatePostExcerpt ] = useEntityProp(
 		'postType',
 		postType,
-		'meta',
+		'excerpt',
 		postId
 	);
 
-	const { subtitle } = meta;
+	const { excerpt } = postExcerpt;
+
+
+	console.log( postType );
+    console.log( postId );
+	console.log( excerpt );
 
 	return (
 		<div { ...useBlockProps(
 			{
-				'className': `wp-block-heading is-style-text-subtitle`
+				className: `wp-block-post-excerpt`
 			}
 		) }>
 			<RichText
-				tagName="h3"
-				title={ __( 'Subtitle', 'site-functionality' ) }
-				placeholder={ __( 'Add Subtitle...', 'site-functionality' ) }
-				allowedFormats={ [ 'core/bold', 'core/italic' ] }
-				disableLineBreaks
-				value={ subtitle }
-				identifier="subtitle"
+				title={ __( 'Excerpt', 'site-functionality' ) }
+				tagName="p"
+				placeholder={ __( 'Add excerpt...', 'site-functionality' ) }
+				allowedFormats={ [ 'core/italic', 'core/bold', 'core/link' ] }
+				value={ excerpt }
 				onChange={ ( value ) =>
-					updateMeta( {
-						...meta,
-						subtitle: value
+					updatePostExcerpt( {
+						...postExcerpt,
+						excerpt: value
 					} )
 				}
 			/>

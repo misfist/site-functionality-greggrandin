@@ -43,17 +43,14 @@ export default function Edit(
 		postId
 	);
 
-	console.log( postType );
-    console.log( postId );
-	console.log( meta );
-
 	const { publisher } = meta;
 
 	return (
 		<div { ...useBlockProps() }>
 			<RichText
+				title={ __( 'Publisher', 'site-functionality' ) }
 				tagName="p"
-				placeholder={ __( 'Publisher', 'site-functionality' ) }
+				placeholder={ __( 'Add Publisher Name...', 'site-functionality' ) }
 				allowedFormats={ [ 'core/italic', 'core/link' ] }
 				disableLineBreaks
 				value={ publisher }

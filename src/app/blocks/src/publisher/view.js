@@ -21,5 +21,5 @@
  */
  
 /* eslint-disable no-console */
-console.log("Hello World! (from greg-grandin-subtitle block)");
+console.log("Hello World! (from site-functionality-subtitle block)");
 /* eslint-enable no-console */

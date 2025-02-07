@@ -49,10 +49,12 @@ class Blocks extends Base {
 	 * @return void
 	 */
 	public function register_blocks(): void {
-		register_block_type_from_metadata( __DIR__ . '/build/subtitle' );
-		register_block_type_from_metadata( __DIR__ . '/build/publication-date' );
-		register_block_type_from_metadata( __DIR__ . '/build/publisher' );
+		// register_block_type_from_metadata( __DIR__ . '/build/subtitle' );
+		// register_block_type_from_metadata( __DIR__ . '/build/publication-date' );
+		// register_block_type_from_metadata( __DIR__ . '/build/publisher' );
 		register_block_type_from_metadata( __DIR__ . '/build/buy-buttons' );
+		register_block_type_from_metadata( __DIR__ . '/build/book-details' );
+		// register_block_type_from_metadata( __DIR__ . '/build/excerpt' );
 	}
 
 	/**
@@ -78,7 +80,7 @@ class Blocks extends Base {
 	 * @param object $block_editor_context instance of WP_Block_Editor_Context
 	 * @return array $block_categories
 	 */
-	public function register_block_category( array $block_categories, object $block_editor_context ): array {
+	public function register_block_category( $block_categories, $block_editor_context ) {
 		return $block_categories;
 	}
 

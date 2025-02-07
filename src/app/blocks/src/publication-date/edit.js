@@ -11,9 +11,10 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, InspectorAdvancedControls, RichText } from '@wordpress/block-editor';
 import { useEntityProp } from '@wordpress/core-data';
-import { TextControl } from '@wordpress/components';
+import { DateTimePicker, Panel, PanelBody, PanelRow, TextControl } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -43,9 +44,7 @@ export default function Edit(
 		postId
 	);
 
-	console.log( postType );
-    console.log( postId );
-	console.log( meta );
+	const [ date, setDate ] = useState( new Date() );
 
 	const { publication_date } = meta;
 
@@ -55,6 +54,20 @@ export default function Edit(
 				className: `wp-block-post-date`
 			}
 		) }>
+			<RichText
+				title={ __( 'Publication Date', 'site-functionality' ) }
+				tagName="p"
+				placeholder={ __( 'Add Publication Date (YYYY-MM-DD)...', 'site-functionality' ) }
+				allowedFormats={ [] }
+				disableLineBreaks
+				value={ publication_date }
+				onChange={ ( value ) =>
+					updateMeta( {
+						...meta,
+						publication_date: value
+					} )
+				}
+			/>
 			<TextControl
 				__nextHasNoMarginBottom
 				__next40pxDefaultSize
