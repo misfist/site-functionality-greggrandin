@@ -68,6 +68,12 @@ class Book extends Post_Type {
 				'description'       => __( 'The subtitle of the book.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			),
+			'awards'           => array(
+				'label'             => __( 'Awards', 'site-functionality' ),
+				'type'              => 'string',
+				'description'       => __( 'Awards book won...', 'site-functionality' ),
+				'sanitize_callback' => 'sanitize_post',
+			),
 			'publication_date' => array(
 				'label'             => __( 'Publication Date', 'site-functionality' ),
 				'type'              => 'string',
@@ -111,10 +117,10 @@ class Book extends Post_Type {
 				'sanitize_callback' => 'sanitize_text_field',
 			),
 			// 'price'            => array(
-			// 	'label'             => __( 'Price', 'site-functionality' ),
-			// 	'type'              => 'number',
-			// 	'sanitize_callback' => 'floatval',
-			// 	'description'       => __( 'The price of the book.', 'site-functionality' ),
+			// 'label'             => __( 'Price', 'site-functionality' ),
+			// 'type'              => 'number',
+			// 'sanitize_callback' => 'floatval',
+			// 'description'       => __( 'The price of the book.', 'site-functionality' ),
 			// ),
 			'rating'           => array(
 				'label'             => __( 'Rating', 'site-functionality' ),

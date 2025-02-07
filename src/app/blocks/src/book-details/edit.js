@@ -14,7 +14,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { useEntityProp } from '@wordpress/core-data';
 import { InspectorControls } from '@wordpress/editor';
-import { Panel, PanelBody, PanelRow, TextControl } from '@wordpress/components';
+import { Panel, PanelBody, PanelRow, TextareaControl, TextControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -58,7 +58,8 @@ export default function Edit(
 		pages, 
 		publication_date, 
 		publisher, 
-		subtitle
+		subtitle,
+		awards
 	} = meta;
 
 	console.log( meta );
@@ -79,6 +80,20 @@ export default function Edit(
 							updateMeta( {
 								...meta,
 								subtitle: value
+							} )
+						}
+					/>
+				</PanelRow>
+				<PanelRow>
+					<TextareaControl
+						__nextHasNoMarginBottom
+						label={ __( 'Awards', 'site-functionality' ) }
+						help={ __( 'Enter each award on separate line.', 'site-functionality' ) }
+						value={ awards }
+						onChange={ ( value ) =>
+							updateMeta( {
+								...meta,
+								awards: value
 							} )
 						}
 					/>
@@ -231,6 +246,23 @@ export default function Edit(
 						updateMeta( {
 							...meta,
 							publisher: value
+						} )
+					}
+				/>
+				<label for="awards">{ __( 'Awards', 'site-functionality' ) }</label>
+				<RichText
+					title={ __( 'Awards', 'site-functionality' ) }
+					tagName="p"
+					placeholder={ __( 'Add List of Awards Won...', 'site-functionality' ) }
+					allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
+					// disableLineBreaks
+					value={ awards }
+					identifier="awards"
+					id="awards"
+					onChange={ ( value ) =>
+						updateMeta( {
+							...meta,
+							awards: value
 						} )
 					}
 				/>
