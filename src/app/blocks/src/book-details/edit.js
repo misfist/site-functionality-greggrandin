@@ -68,7 +68,7 @@ export default function Edit(
 
 	const SidePanel = () => (
 		<Panel header={ __( '', 'site-functionality' ) }>
-			<PanelBody title={ __( 'Book Details!', 'site-functionality' ) } initialOpen={ true }>
+			<PanelBody title={ __( 'Book Details', 'site-functionality' ) } initialOpen={ true }>
 				<PanelRow>
 					<TextControl
 						__nextHasNoMarginBottom
