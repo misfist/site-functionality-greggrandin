@@ -52,7 +52,8 @@ export default function Edit(
 	);
 
 	const { 
-		edition, 
+		edition,
+		blurb,
 		isbn, 
 		language, 
 		pages, 
@@ -80,6 +81,20 @@ export default function Edit(
 							updateMeta( {
 								...meta,
 								subtitle: value
+							} )
+						}
+					/>
+				</PanelRow>
+				<PanelRow>
+					<TextareaControl
+						__nextHasNoMarginBottom
+						label={ __( 'Details', 'site-functionality' ) }
+						help={ __( 'Extra details to display (e.g. "Updated Edition").', 'site-functionality' ) }
+						value={ blurb }
+						onChange={ ( value ) =>
+							updateMeta( {
+								...meta,
+								blurb: value
 							} )
 						}
 					/>
@@ -212,6 +227,23 @@ export default function Edit(
 						updateMeta( {
 							...meta,
 							subtitle: value
+						} )
+					}
+				/>
+				<label for="blurb">{ __( 'Details', 'site-functionality' ) }</label>
+				<RichText
+					title={ __( 'Details', 'site-functionality' ) }
+					tagName="p"
+					placeholder={ __( 'Extra details to display (e.g. "Updated Edition").', 'site-functionality' ) }
+					allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
+					// disableLineBreaks
+					value={ blurb }
+					identifier="blurb"
+					id="blurb"
+					onChange={ ( value ) =>
+						updateMeta( {
+							...meta,
+							blurb: value
 						} )
 					}
 				/>

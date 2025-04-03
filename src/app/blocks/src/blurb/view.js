@@ -21,5 +21,5 @@
  */
  
 /* eslint-disable no-console */
-console.log("Hello World! (from site-functionality-book-details block)");
+console.log("Hello World! (from site-functionality-blurb block)");
 /* eslint-enable no-console */

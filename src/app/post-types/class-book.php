@@ -68,6 +68,12 @@ class Book extends Post_Type {
 				'description'       => __( 'The subtitle of the book.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			),
+			'blurb'         => array(
+				'label'             => __( 'Blurb', 'site-functionality' ),
+				'type'              => 'string',
+				'description'       => __( 'Extra details to display (e.g. "Updated Edition").', 'site-functionality' ),
+				'sanitize_callback' => 'sanitize_post',
+			),
 			'awards'           => array(
 				'label'             => __( 'Awards', 'site-functionality' ),
 				'type'              => 'string',
