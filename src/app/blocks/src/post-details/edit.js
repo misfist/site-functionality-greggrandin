@@ -153,9 +153,9 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label htmlFor="publication_link">{ __( 'Publisher', 'site-functionality' ) }</label>
+				<label htmlFor="publication_link">{ __( 'Publication Link', 'site-functionality' ) }</label>
 				<RichText
-					title={ __( 'Publisher Link', 'site-functionality' ) }
+					title={ __( 'Publication Link', 'site-functionality' ) }
 					tagName="p"
 					placeholder={ __( 'Add Link...', 'site-functionality' ) }
 					allowedFormats={ [] }
