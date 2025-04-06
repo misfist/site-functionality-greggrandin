@@ -21,7 +21,8 @@
     },
     "typography": {
       "fontSize": true
-    }
+    },
+    "multiple": false
   },
   "textdomain": "site-functionality",
   "editorScript": "file:./index.js",
