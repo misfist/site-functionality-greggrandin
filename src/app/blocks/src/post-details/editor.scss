@@ -1,0 +1,25 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-site-functionality-post-details {
+    .rich-text {
+        border: 1px solid #dadada;
+        padding: 2px 6px;
+
+        &:focus {
+            background-color: #dadada;
+        }
+    }
+
+    label {
+        font-size: .75rem;
+        text-transform: uppercase;
+    }
+
+    label + .rich-text {
+        margin-top: 0;
+    }
+}

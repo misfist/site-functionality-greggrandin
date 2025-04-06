@@ -54,6 +54,7 @@ class Blocks extends Base {
 		// register_block_type_from_metadata( __DIR__ . '/build/publisher' );
 		register_block_type_from_metadata( __DIR__ . '/build/buy-buttons' );
 		register_block_type_from_metadata( __DIR__ . '/build/book-details' );
+		register_block_type_from_metadata( __DIR__ . '/build/post-details' );
 		// register_block_type_from_metadata( __DIR__ . '/build/excerpt' );
 	}
 

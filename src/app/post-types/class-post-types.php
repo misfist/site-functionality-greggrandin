@@ -9,7 +9,7 @@ namespace Site_Functionality\App\Post_Types;
 
 use Site_Functionality\Common\Abstracts\Base;
 use Site_Functionality\App\Post_Types\Book;
-// use \TenUp\ContentConnect\Plugin;
+use Site_Functionality\App\Post_Types\Post;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,6 +35,22 @@ class Post_Types extends Base {
 	 */
 	public function init(): void {
 		new Book( $this->settings );
+		new Post( $this->settings );
+
+		add_filter( 'page-links-to-post-types', array( $this, 'page_links_to_support' ), 11 );
 	}
 
+	/**
+	 * Determine Posts that Support plugin
+	 *
+	 * @param array $supported_post_types
+	 * @return void
+	 */
+	public function page_links_to_support( $supported_post_types ) {
+		$hook = 'page-links-to-types';
+		// $support              = get_post_types_by_support( 'page_link_to' );
+		$support              = array( 'post' );
+		$supported_post_types = apply_filters( $hook, $support );
+		return $supported_post_types;
+	}
 }

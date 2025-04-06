@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "site-functionality/book-details",
+  "name": "site-functionality/post-details",
   "version": "0.1.0",
-  "title": "Book Details",
+  "title": "Article Details",
   "category": "theme",
-  "icon": "book-alt",
-  "description": "The book details.",
+  "icon": "media-text",
+  "description": "The article details.",
   "usesContext": [
     "postId",
     "postType"

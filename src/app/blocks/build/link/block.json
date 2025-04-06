@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "site-functionality/book-details",
+  "name": "site-functionality/link",
   "version": "0.1.0",
-  "title": "Book Details",
+  "title": "Publication Link",
   "category": "theme",
-  "icon": "book-alt",
-  "description": "The book details.",
+  "icon": "admin-links",
+  "description": "The link to publication.",
   "usesContext": [
     "postId",
     "postType"
@@ -21,8 +21,7 @@
     },
     "typography": {
       "fontSize": true
-    },
-    "multiple": false
+    }
   },
   "textdomain": "site-functionality",
   "editorScript": "file:./index.js",

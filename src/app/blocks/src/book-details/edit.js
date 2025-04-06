@@ -213,7 +213,7 @@ export default function Edit(
 				<SidePanel />
 			</InspectorControls>
 			<div { ...useBlockProps() }>
-				<label for="subtitle">{ __( 'Subtitle', 'site-functionality' ) }</label>
+				<label htmlFor="subtitle">{ __( 'Subtitle', 'site-functionality' ) }</label>
 				<RichText
 					tagName="h3"
 					title={ __( 'Subtitle', 'site-functionality' ) }
@@ -230,7 +230,7 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label for="blurb">{ __( 'Details', 'site-functionality' ) }</label>
+				<label htmlFor="blurb">{ __( 'Details', 'site-functionality' ) }</label>
 				<RichText
 					title={ __( 'Details', 'site-functionality' ) }
 					tagName="p"
@@ -247,7 +247,7 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label for="publication-date">{ __( 'Publication Date', 'site-functionality' ) }</label>
+				<label htmlFor="publication-date">{ __( 'Publication Date', 'site-functionality' ) }</label>
 				<RichText
 					title={ __( 'Publication Date', 'site-functionality' ) }
 					tagName="p"
@@ -264,7 +264,7 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label for="publisher">{ __( 'Publisher', 'site-functionality' ) }</label>
+				<label htmlFor="publisher">{ __( 'Publisher', 'site-functionality' ) }</label>
 				<RichText
 					title={ __( 'Publisher', 'site-functionality' ) }
 					tagName="p"
@@ -281,7 +281,7 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label for="awards">{ __( 'Awards', 'site-functionality' ) }</label>
+				<label htmlFor="awards">{ __( 'Awards', 'site-functionality' ) }</label>
 				<RichText
 					title={ __( 'Awards', 'site-functionality' ) }
 					tagName="p"
@@ -298,7 +298,7 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label for="edition">{ __( 'Edition', 'site-functionality' ) }</label>
+				<label htmlFor="edition">{ __( 'Edition', 'site-functionality' ) }</label>
 				<RichText
 					tagName="p"
 					title={ __( 'Edition', 'site-functionality' ) }
@@ -315,7 +315,7 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label for="isbn">{ __( 'ISBN', 'site-functionality' ) }</label>
+				<label htmlFor="isbn">{ __( 'ISBN', 'site-functionality' ) }</label>
 				<RichText
 					tagName="p"
 					title={ __( 'ISBN', 'site-functionality' ) }
@@ -332,7 +332,7 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label for="language">{ __( 'Language', 'site-functionality' ) }</label>
+				<label htmlFor="language">{ __( 'Language', 'site-functionality' ) }</label>
 				<RichText
 					tagName="p"
 					title={ __( 'Language', 'site-functionality' ) }
@@ -349,7 +349,7 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label for="pages">{ __( 'Pages', 'site-functionality' ) }</label>
+				<label htmlFor="pages">{ __( 'Pages', 'site-functionality' ) }</label>
 				<RichText
 					tagName="p"
 					title={ __( 'Pages', 'site-functionality' ) }

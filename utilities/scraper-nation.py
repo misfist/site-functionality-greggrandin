@@ -34,13 +34,10 @@ def scrape_page(url):
 
             articles.append([title, date, link, image_link])
     
-    # Find next page link
-    # next_page = soup.select_one("a.pagination-next")
-    # return next_page["href"] if next_page else None
-    next_page = soup.select_one("a.page-number.page-numbers:not(.current)")  # Skip 'current' page
+    # Find the "Next" button in pagination
+    next_page = soup.select_one("a.page-numbers.next")
     if next_page:
         next_page_url = next_page["href"]
-        # Make sure to prepend the base URL if the next page URL is relative
         if not next_page_url.startswith("http"):
             next_page_url = f"https://www.thenation.com{next_page_url}"
         return next_page_url
@@ -51,7 +48,7 @@ next_url = base_url
 while next_url:
     print(f"Scraping: {next_url}")
     next_url = scrape_page(next_url)
-    time.sleep(2)  # Be respectful, avoid excessive requests
+    time.sleep(2)
 
 # Save results to CSV
 with open(filename, "w", newline="", encoding="utf-8") as file:
