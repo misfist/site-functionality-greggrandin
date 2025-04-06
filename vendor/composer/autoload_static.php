@@ -38,6 +38,7 @@ class ComposerStaticInit79748fcebbe0b4d5a437ef9bea3d53bb
         'Site_Functionality\\App\\Blocks\\Blocks' => __DIR__ . '/../..' . '/src/app/blocks/class-blocks.php',
         'Site_Functionality\\App\\Frontend\\Frontend_Assets' => __DIR__ . '/../..' . '/src/app/frontend/class-frontend-assets.php',
         'Site_Functionality\\App\\Post_Types\\Book' => __DIR__ . '/../..' . '/src/app/post-types/class-book.php',
+        'Site_Functionality\\App\\Post_Types\\Post' => __DIR__ . '/../..' . '/src/app/post-types/class-post.php',
         'Site_Functionality\\App\\Post_Types\\Post_Types' => __DIR__ . '/../..' . '/src/app/post-types/class-post-types.php',
         'Site_Functionality\\App\\Taxonomies\\Genre' => __DIR__ . '/../..' . '/src/app/taxonomies/class-genre.php',
         'Site_Functionality\\App\\Taxonomies\\Taxonomies' => __DIR__ . '/../..' . '/src/app/taxonomies/class-taxonomies.php',

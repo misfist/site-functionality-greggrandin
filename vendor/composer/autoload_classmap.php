@@ -13,6 +13,7 @@ return array(
     'Site_Functionality\\App\\Blocks\\Blocks' => $baseDir . '/src/app/blocks/class-blocks.php',
     'Site_Functionality\\App\\Frontend\\Frontend_Assets' => $baseDir . '/src/app/frontend/class-frontend-assets.php',
     'Site_Functionality\\App\\Post_Types\\Book' => $baseDir . '/src/app/post-types/class-book.php',
+    'Site_Functionality\\App\\Post_Types\\Post' => $baseDir . '/src/app/post-types/class-post.php',
     'Site_Functionality\\App\\Post_Types\\Post_Types' => $baseDir . '/src/app/post-types/class-post-types.php',
     'Site_Functionality\\App\\Taxonomies\\Genre' => $baseDir . '/src/app/taxonomies/class-genre.php',
     'Site_Functionality\\App\\Taxonomies\\Taxonomies' => $baseDir . '/src/app/taxonomies/class-taxonomies.php',

@@ -68,7 +68,7 @@ class Book extends Post_Type {
 				'description'       => __( 'The subtitle of the book.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			),
-			'blurb'         => array(
+			'blurb'            => array(
 				'label'             => __( 'Blurb', 'site-functionality' ),
 				'type'              => 'string',
 				'description'       => __( 'Extra details to display (e.g. "Updated Edition").', 'site-functionality' ),
@@ -83,15 +83,21 @@ class Book extends Post_Type {
 			'publication_date' => array(
 				'label'             => __( 'Publication Date', 'site-functionality' ),
 				'type'              => 'string',
-				'description'       => __( 'The publication date of the book.', 'site-functionality' ),
+				'description'       => __( 'The date of publication.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			),
 			'publisher'        => array(
 				'label'             => __( 'Publisher', 'site-functionality' ),
 				'type'              => 'string',
-				'description'       => __( 'The publisher of the book.', 'site-functionality' ),
+				'description'       => __( 'The publisher\'s name.', 'site-functionality' ),
 				'sanitize_callback' => 'wp_kses_post',
 			),
+			// '_links_to' => array(
+			// 	'label'             => __( 'Publisher Link', 'site-functionality' ),
+			// 	'type'              => 'string',
+			// 	'description'       => __( 'The publisher link.', 'site-functionality' ),
+			// 	'sanitize_callback' => 'sanitize_text_field',
+			// ),
 			'isbn'             => array(
 				'label'             => __( 'ISBN', 'site-functionality' ),
 				'type'              => 'string',
