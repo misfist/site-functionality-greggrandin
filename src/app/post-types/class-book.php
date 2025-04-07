@@ -144,6 +144,8 @@ class Book extends Post_Type {
 
 		\add_action( 'init', array( $this, 'register_meta' ) );
 		// \add_action( 'acf/include_fields', array( $this, 'register_fields' ) );
+
+		add_filter( 'relevanssi_index_custom_fields', array( $this, 'index_meta' ), 10, 2 );
 	}
 
 	/**
@@ -394,6 +396,20 @@ class Book extends Post_Type {
 				)
 			);
 		}
+	}
+
+	/**
+	 * Add custom fields to search index
+	 * 
+	 * @link https://www.relevanssi.com/user-manual/filter-hooks/relevanssi_index_custom_fields/
+	 *
+	 * @param array $custom_fields
+	 * @param integer $post_id
+	 * @return array
+	 */
+	public function index_meta( array $custom_fields, int $post_id ) : array {
+		$custom_fields = array_keys( $this->fields );
+		return $custom_fields;
 	}
 
 	/**
