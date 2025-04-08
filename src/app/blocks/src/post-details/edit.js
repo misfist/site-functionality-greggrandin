@@ -14,7 +14,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 import { useEntityProp } from '@wordpress/core-data';
 import { InspectorControls } from '@wordpress/editor';
-import { Panel, PanelBody, PanelRow, TextareaControl, TextControl } from '@wordpress/components';
+import { DateTimePicker, Panel, PanelBody, PanelRow, TextareaControl, TextControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -55,10 +55,10 @@ export default function Edit(
 		publisher, 
 		publication_date,
 		publication_link,
-		_links_to
+		blurb,
+		_links_to,
+		_links_to_target = '_blank'
 	} = meta;
-
-	const { excerpt } = postExcerpt;
 
 	const SidePanel = () => (
 		<Panel header={ __( '', 'site-functionality' ) }>
@@ -109,15 +109,41 @@ export default function Edit(
 						}
 					/>
 				</PanelRow>
+				<PanelRow>
+					<TextareaControl
+						__nextHasNoMarginBottom
+						label={ __( 'Details', 'site-functionality' ) }
+						help={ __( 'Extra details to display (e.g. "Edited by").', 'site-functionality' ) }
+						value={ blurb }
+						onChange={ ( value ) =>
+							updateMeta( {
+								...meta,
+								blurb: value
+							} )
+						}
+					/>
+				</PanelRow>
+				<PanelRow>
+					<TextControl
+						__nextHasNoMarginBottom
+						__next40pxDefaultSize
+						label={ __( 'Link Target', 'site-functionality' ) }
+						type={ 'text' }
+						value={ _links_to_target }
+						onChange={ ( value ) =>
+							updateMeta( {
+								...meta,
+								_links_to_target: value
+							} )
+						}
+					/>
+				</PanelRow>
 			</PanelBody>
 		</Panel>
 	);
 
 	return (
 		<>
-			<InspectorControls>
-				<SidePanel />
-			</InspectorControls>
 			<div { ...useBlockProps() }>
 				<label htmlFor="publisher">{ __( 'Publisher', 'site-functionality' ) }</label>
 				<RichText
@@ -136,16 +162,12 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label htmlFor="publication-date">{ __( 'Publication Date', 'site-functionality' ) }</label>
-				<RichText
-					title={ __( 'Publication Date', 'site-functionality' ) }
-					tagName="p"
-					placeholder={ __( 'Add Publication Date (YYYY-MM-DD)...', 'site-functionality' ) }
-					allowedFormats={ [] }
-					disableLineBreaks
+				<TextControl
+					__nextHasNoMarginBottom
+					__next40pxDefaultSize
+					label={ __( 'Publication Date', 'site-functionality' ) }
+					type={ 'date' }
 					value={ publication_date }
-					identifier="publication_date"
-					id="publication-date"
 					onChange={ ( value ) =>
 						updateMeta( {
 							...meta,
@@ -153,6 +175,7 @@ export default function Edit(
 						} )
 					}
 				/>
+
 				<label htmlFor="publication_link">{ __( 'Publication Link', 'site-functionality' ) }</label>
 				<RichText
 					title={ __( 'Publication Link', 'site-functionality' ) }
@@ -167,6 +190,40 @@ export default function Edit(
 						updateMeta( {
 							...meta,
 							_links_to: value
+						} )
+					}
+				/>
+				<label htmlFor="publication_link_target">{ __( 'Link Target', 'site-functionality' ) }</label>
+				<RichText
+					title={ __( 'Link Target', 'site-functionality' ) }
+					tagName="p"
+					placeholder={ __( '_blank', 'site-functionality' ) }
+					allowedFormats={ [] }
+					disableLineBreaks
+					value={ _links_to_target }
+					identifier="publication_link_target"
+					id="publication_link_target"
+					onChange={ ( value ) =>
+						updateMeta( {
+							...meta,
+							_links_to_target: value
+						} )
+					}
+				/>
+				<label htmlFor="blurb">{ __( 'Details', 'site-functionality' ) }</label>
+				<RichText
+					title={ __( 'Details', 'site-functionality' ) }
+					tagName="p"
+					placeholder={ __( 'Extra details to display (e.g. "Edited by").', 'site-functionality' ) }
+					allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
+					// disableLineBreaks
+					value={ blurb }
+					identifier="blurb"
+					id="blurb"
+					onChange={ ( value ) =>
+						updateMeta( {
+							...meta,
+							blurb: value
 						} )
 					}
 				/>
