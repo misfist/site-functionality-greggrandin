@@ -20,7 +20,7 @@ class Post {
 	 * Post_Type data
 	 */
 	public const POST_TYPE = array(
-		'id'            => 'post',
+		'id' => 'post',
 	);
 
 	/**
@@ -63,11 +63,23 @@ class Post {
 				'description'       => __( 'The publisher\'s name.', 'site-functionality' ),
 				'sanitize_callback' => 'wp_kses_post',
 			),
-			'_links_to' => array(
+			'_links_to'        => array(
 				'label'             => __( 'Publication Link', 'site-functionality' ),
 				'type'              => 'string',
 				'description'       => __( 'The publisher link.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
+			),
+			'_links_to_target' => array(
+				'label'             => __( 'Link Target', 'site-functionality' ),
+				'type'              => 'string',
+				'description'       => __( 'The link target.', 'site-functionality' ),
+				'sanitize_callback' => 'sanitize_text_field',
+			),
+			'blurb'            => array(
+				'label'             => __( 'Blurb', 'site-functionality' ),
+				'type'              => 'string',
+				'description'       => __( 'Extra details to display (e.g. "Updated Edition").', 'site-functionality' ),
+				'sanitize_callback' => 'wp_kses_post',
 			),
 		);
 
@@ -105,12 +117,12 @@ class Post {
 		}
 	}
 
-		/**
+	/**
 	 * Modify post type args
 	 *
 	 * @link https://developer.wordpress.org/reference/hooks/register_post_type_args/
 	 *
-	 * @param  array  $args
+	 * @param  array            $args
 	 * @param  string POST_TYPE
 	 * @return array $args - modified
 	 */
@@ -133,7 +145,7 @@ class Post {
 	 * @param array $supported_post_types
 	 * @return array
 	 */
-	public function page_links_to_support( array $supported_post_types ) : array {
+	public function page_links_to_support( array $supported_post_types ): array {
 		$supported_post_types[] = self::POST_TYPE['id'];
 		return $supported_post_types;
 	}
