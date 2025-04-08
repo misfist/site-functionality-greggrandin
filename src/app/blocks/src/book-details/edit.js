@@ -63,8 +63,6 @@ export default function Edit(
 		awards
 	} = meta;
 
-	console.log( meta );
-
 	const { excerpt } = postExcerpt;
 
 	const SidePanel = () => (
