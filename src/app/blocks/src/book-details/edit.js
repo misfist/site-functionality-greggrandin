@@ -86,8 +86,8 @@ export default function Edit(
 				<PanelRow>
 					<TextareaControl
 						__nextHasNoMarginBottom
-						label={ __( 'Details', 'site-functionality' ) }
-						help={ __( 'Extra details to display (e.g. "Updated Edition").', 'site-functionality' ) }
+						label={ __( 'Highlight', 'site-functionality' ) }
+						help={ __( 'Highlighted details to display (e.g. "Updated Edition").', 'site-functionality' ) }
 						value={ blurb }
 						onChange={ ( value ) =>
 							updateMeta( {
@@ -228,23 +228,6 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label htmlFor="blurb">{ __( 'Details', 'site-functionality' ) }</label>
-				<RichText
-					title={ __( 'Details', 'site-functionality' ) }
-					tagName="p"
-					placeholder={ __( 'Extra details to display (e.g. "Updated Edition").', 'site-functionality' ) }
-					allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
-					// disableLineBreaks
-					value={ blurb }
-					identifier="blurb"
-					id="blurb"
-					onChange={ ( value ) =>
-						updateMeta( {
-							...meta,
-							blurb: value
-						} )
-					}
-				/>
 				<label htmlFor="publication-date">{ __( 'Publication Date', 'site-functionality' ) }</label>
 				<RichText
 					title={ __( 'Publication Date', 'site-functionality' ) }
@@ -262,20 +245,20 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label htmlFor="publisher">{ __( 'Publisher', 'site-functionality' ) }</label>
+				<label htmlFor="blurb">{ __( 'Highlight', 'site-functionality' ) }</label>
 				<RichText
-					title={ __( 'Publisher', 'site-functionality' ) }
+					title={ __( 'Highlight', 'site-functionality' ) }
 					tagName="p"
-					placeholder={ __( 'Add Publisher Name...', 'site-functionality' ) }
-					allowedFormats={ [ 'core/italic', 'core/link' ] }
-					disableLineBreaks
-					value={ publisher }
-					identifier="publisher"
-					id="publisher"
+					placeholder={ __( 'Highlighted details to display (e.g. "Updated Edition").', 'site-functionality' ) }
+					allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
+					// disableLineBreaks
+					value={ blurb }
+					identifier="blurb"
+					id="blurb"
 					onChange={ ( value ) =>
 						updateMeta( {
 							...meta,
-							publisher: value
+							blurb: value
 						} )
 					}
 				/>
@@ -293,6 +276,23 @@ export default function Edit(
 						updateMeta( {
 							...meta,
 							awards: value
+						} )
+					}
+				/>
+				<label htmlFor="publisher">{ __( 'Publisher', 'site-functionality' ) }</label>
+				<RichText
+					title={ __( 'Publisher', 'site-functionality' ) }
+					tagName="p"
+					placeholder={ __( 'Add Publisher Name...', 'site-functionality' ) }
+					allowedFormats={ [ 'core/italic', 'core/link' ] }
+					disableLineBreaks
+					value={ publisher }
+					identifier="publisher"
+					id="publisher"
+					onChange={ ( value ) =>
+						updateMeta( {
+							...meta,
+							publisher: value
 						} )
 					}
 				/>

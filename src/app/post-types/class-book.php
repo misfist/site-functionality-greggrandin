@@ -66,12 +66,12 @@ class Book extends Post_Type {
 				'label'             => __( 'Subtitle', 'site-functionality' ),
 				'type'              => 'string',
 				'description'       => __( 'The subtitle of the book.', 'site-functionality' ),
-				'sanitize_callback' => 'sanitize_text_field',
+				'sanitize_callback' => 'sanitize_post',
 			),
 			'blurb'            => array(
-				'label'             => __( 'Blurb', 'site-functionality' ),
+				'label'             => __( 'Highlight', 'site-functionality' ),
 				'type'              => 'string',
-				'description'       => __( 'Extra details to display (e.g. "Updated Edition").', 'site-functionality' ),
+				'description'       => __( 'Highlighted details to display (e.g. "Updated Edition").', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_post',
 			),
 			'awards'           => array(
@@ -90,7 +90,7 @@ class Book extends Post_Type {
 				'label'             => __( 'Publisher', 'site-functionality' ),
 				'type'              => 'string',
 				'description'       => __( 'The publisher\'s name.', 'site-functionality' ),
-				'sanitize_callback' => 'wp_kses_post',
+				'sanitize_callback' => 'sanitize_post',
 			),
 			// '_links_to' => array(
 			// 	'label'             => __( 'Publisher Link', 'site-functionality' ),
@@ -108,7 +108,7 @@ class Book extends Post_Type {
 				'label'             => __( 'Edition', 'site-functionality' ),
 				'type'              => 'string',
 				'description'       => __( 'The edition of the book.', 'site-functionality' ),
-				'sanitize_callback' => 'sanitize_text_field',
+				'sanitize_callback' => 'sanitize_post',
 			),
 			'pages'            => array(
 				'label'             => __( 'Pages', 'site-functionality' ),
