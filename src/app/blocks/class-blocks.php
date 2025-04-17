@@ -14,6 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+function get_book_quotes( $post_id = null, $number = 2 ) {
+	return Blocks::get_blockquotes( $post_id, $number );
+}
+
+function render_book_quotes( $post_id = null, $number = 2  ) {
+	echo get_book_quotes( $post_id, $number );
+}
+
 class Blocks extends Base {
 
 	/**
@@ -55,6 +63,7 @@ class Blocks extends Base {
 		register_block_type_from_metadata( __DIR__ . '/build/buy-buttons' );
 		register_block_type_from_metadata( __DIR__ . '/build/book-details' );
 		register_block_type_from_metadata( __DIR__ . '/build/post-details' );
+		register_block_type_from_metadata( __DIR__ . '/build/quotes' );
 		// register_block_type_from_metadata( __DIR__ . '/build/excerpt' );
 	}
 
@@ -91,4 +100,37 @@ class Blocks extends Base {
 	 * @return void
 	 */
 	public function enqueue_blocks_scripts(): void {}
+
+	/**
+	 * Get book quotes
+	 *
+	 * @return string
+	 */
+	public static function get_blockquotes( $post_id = null, $number = 2 ): ?string {
+		global $post;
+		$post_id    = ( $post_id ) ? $post_id : $post->ID;
+		$block_name = 'core/quote';
+
+		if ( ! has_block( $block_name, $post_id ) ) {
+			return null;
+		}
+
+		$blocks = parse_blocks( $post->post_content );
+		$max    = $number;
+		$count  = 1;
+
+		$output = '';
+
+		foreach ( $blocks as $block ) {
+			if ( 'core/quote' === $block['blockName'] ) {
+				if ( $max < $count ) {
+					break;
+				}
+				// error_log( $block['blockName'] . '' . $count );
+				$output .= render_block( $block );
+				++$count;
+			}
+		}
+		return $output;
+	}
 }
