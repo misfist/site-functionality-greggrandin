@@ -112,8 +112,8 @@ export default function Edit(
 				<PanelRow>
 					<TextareaControl
 						__nextHasNoMarginBottom
-						label={ __( 'Details', 'site-functionality' ) }
-						help={ __( 'Extra details to display (e.g. "Edited by").', 'site-functionality' ) }
+						label={ __( 'Highlight', 'site-functionality' ) }
+						help={ __( 'Highlighted details to display (e.g. "Brand New Edition").', 'site-functionality' ) }
 						value={ blurb }
 						onChange={ ( value ) =>
 							updateMeta( {
@@ -210,11 +210,11 @@ export default function Edit(
 						} )
 					}
 				/>
-				<label htmlFor="blurb">{ __( 'Details', 'site-functionality' ) }</label>
+				<label htmlFor="blurb">{ __( 'Highlight', 'site-functionality' ) }</label>
 				<RichText
-					title={ __( 'Details', 'site-functionality' ) }
+					title={ __( 'Highlight', 'site-functionality' ) }
 					tagName="p"
-					placeholder={ __( 'Extra details to display (e.g. "Edited by").', 'site-functionality' ) }
+					placeholder={ __( 'Highlighted details to display (e.g. "Updated Edition").', 'site-functionality' ) }
 					allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
 					// disableLineBreaks
 					value={ blurb }
