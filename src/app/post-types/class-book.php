@@ -114,7 +114,7 @@ class Book extends Post_Type {
 				'label'             => __( 'Pages', 'site-functionality' ),
 				'type'              => 'string',
 				'description'       => __( 'The number of pages in the book.', 'site-functionality' ),
-				'sanitize_callback' => 'absint',
+				'sanitize_callback' => 'sanitize_text_field',
 			),
 			'language'         => array(
 				'label'             => __( 'Language', 'site-functionality' ),
@@ -136,7 +136,7 @@ class Book extends Post_Type {
 			// ),
 			'rating'           => array(
 				'label'             => __( 'Rating', 'site-functionality' ),
-				'type'              => 'number',
+				'type'              => 'string',
 				'description'       => __( 'The rating of the book.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			),
@@ -263,7 +263,7 @@ class Book extends Post_Type {
 				'label'             => __( 'Pages', 'site-functionality' ),
 				'name'              => 'pages',
 				'aria-label'        => '',
-				'type'              => 'number',
+				'type'              => 'text',
 				'instructions'      => '',
 				'required'          => 0,
 				'conditional_logic' => 0,
