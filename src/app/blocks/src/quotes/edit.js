@@ -47,25 +47,53 @@ export default function Edit(
 		postId
 	);
 
+	let output = __( 'There are no quotes in the content.', 'site-functionality' );
+
+	if( ! postContent ) {
+		return (
+			<>
+				<div { ...useBlockProps(
+					{
+						'className': `wp-block-quote is-style-background`
+					}
+				) }>
+					{ output }
+				</div>
+				
+			</>
+		);
+	}
+
 	const blocks = parse( postContent );
 
-	const quotes = blocks.filter( block => block.blockName === 'core/quote' );
+	const quotes = blocks?.filter( block => block.blockName === 'core/quote' );
 
-	const output = Object.values( quotes ).slice( 0, number ).map( ( quote, index ) => {
-		const open = quote.innerContent[0];
-		const close = quote.innerContent[2];
+	if( quotes ) {
+		output = Object.values( quotes ).slice( 0, number ).map( ( quote, index ) => {
+			let content = '';
+			let open = '';
+			let close = ''
 
-		const innerBlocks = quote.innerBlocks.filter( innerBlock => innerBlock.blockName === 'core/paragraph' );
-		const paragraphs = innerBlocks.map( ( block ) => {
-			return block.innerHTML;
+			if( quote.length ) {
+				open = quote.innerContent[0];
+				close = quote.innerContent[2];
+			}
+
+			const innerBlocks = quote.innerBlocks.filter( innerBlock => innerBlock.blockName === 'core/paragraph' );
+
+			if( innerBlocks ) {
+				const paragraphs = innerBlocks.map( ( block ) => {
+					return block.innerHTML;
+				} );
+		
+				content = open + paragraphs.toString() + close;
+			}
+
+			return (
+				<RawHTML key={ index }>{ content }</RawHTML>
+			);
 		} );
-
-		const content = open + paragraphs.toString() + close;
-
-		return (
-			<RawHTML key={ index }>{ content }</RawHTML>
-		);
-	} );
+	}
 
 	const SidePanel = () => (
 		<Panel header={ __( '', 'site-functionality' ) }>
@@ -100,9 +128,13 @@ export default function Edit(
 			) }>
 				{ output }
 			</div>
-			<InspectorControls>
-				<SidePanel />
-			</InspectorControls>
+			{ postContent && 
+				( 	
+					<InspectorControls>
+						<SidePanel />
+					</InspectorControls> 
+				)
+			}
 		</>
 	);
 }
