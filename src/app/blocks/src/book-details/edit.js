@@ -176,7 +176,7 @@ export default function Edit(
 						__nextHasNoMarginBottom
 						__next40pxDefaultSize
 						label={ __( 'Pages', 'site-functionality' ) }
-						type={ 'number' }
+						type={ 'text' }
 						value={ pages }
 						onChange={ ( value ) =>
 							updateMeta( {
