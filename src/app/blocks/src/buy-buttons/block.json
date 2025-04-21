@@ -31,11 +31,12 @@
 		]
 	},
 	"supports": {
-		"html": true
+		"html": true,
+		"multiple": false
 	},
+	"usesContext": [ "postId", "postType" ],
 	"textdomain": "site-functionality",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"style": "file:./style-index.css"
 }
