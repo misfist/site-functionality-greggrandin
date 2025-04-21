@@ -14,12 +14,46 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function get_book_quotes( $post_id = null, $number = 2 ) {
+/**
+ * Get Book Quotes
+ *
+ * @param integer $post_id
+ * @param integer $number
+ * @return void
+ */
+function get_book_quotes( $post_id = null, $number = 2 ) : ?string {
 	return Blocks::get_blockquotes( $post_id, $number );
 }
 
-function render_book_quotes( $post_id = null, $number = 2  ) {
+/**
+ * Render Book Quotes
+ *
+ * @param integer $post_id
+ * @param integer $number
+ * @return void
+ */
+function render_book_quotes( $post_id = null, $number = 2  ) : void {
 	echo get_book_quotes( $post_id, $number );
+}
+
+/**
+ * Get the Book Buttons
+ *
+ * @param int $post_id
+ * @return string|null
+ */
+function get_book_buttons( $post_id = null ) : ?string {
+	return Blocks::get_book_buttons( $post_id );
+}
+
+/**
+ * Render Book Buttons
+ *
+ * @param integer $post_id
+ * @return void
+ */
+function render_book_buttons( $post_id = null ) : void {
+	echo get_book_buttons( $post_id );
 }
 
 class Blocks extends Base {
@@ -134,4 +168,35 @@ class Blocks extends Base {
 		}
 		return $output;
 	}
+
+	/**
+	 * Get the buttons
+	 *
+	 * @param int $post_id
+	 * @return string|null
+	 */
+	public static function get_book_buttons( $post_id = null ) : ?string {
+		global $post;
+		$post_id    = ( $post_id ) ? $post_id : $post->ID;
+		$block_name = 'site-functionality/buy-buttons';
+
+		if ( ! has_block( $block_name, $post_id ) ) {
+			return null;
+		}
+
+		$blocks = parse_blocks( $post->post_content );
+
+		$output = '';
+
+		foreach ( $blocks as $block ) {
+
+			if ( 'site-functionality/buy-buttons' === $block['blockName'] ) {
+				$output .= apply_filters( 'the_content', render_block( $block ) );
+				break;
+			}
+		}
+
+		return $output;
+	}
+
 }
