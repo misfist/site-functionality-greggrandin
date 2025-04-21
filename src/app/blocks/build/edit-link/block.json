@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "site-functionality/edit-link",
+  "version": "0.1.0",
+  "title": "Edit Link",
+  "category": "theme",
+  "icon": "edit",
+  "description": "Link to edit current post.",
+  "usesContext": [
+    "postId",
+    "postType"
+  ],
+  "example": {},
+  "supports": {
+    "html": true,
+    "color": {
+      "background": true,
+      "text": true,
+      "heading": true
+    },
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "textdomain": "site-functionality",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
