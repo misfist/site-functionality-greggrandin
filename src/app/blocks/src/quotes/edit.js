@@ -97,25 +97,23 @@ export default function Edit(
 
 	const SidePanel = () => (
 		<Panel header={ __( '', 'site-functionality' ) }>
-				<PanelBody title={ __( 'Display Options', 'site-functionality' ) } >
-					<PanelRow>
-						<TextControl
-							__nextHasNoMarginBottom
-							__next40pxDefaultSize
-							label={ __( 'Number', 'site-functionality' ) }
-							type={ 'number' }
-							value={ number }
-							onChange={ ( value ) =>
-								setAttributes(
-									{
-										publisher: value
-									}
-								)
-							}
-						/>
-					</PanelRow>
-				</PanelBody>
-			</Panel>
+			<PanelBody title={ __( 'Display Options', 'site-functionality' ) } >
+				<PanelRow>
+					<TextControl
+						label={ __( 'Number', 'site-functionality' ) }
+						type={ 'text' }
+						value={ number }
+						onChange={ ( value ) =>
+							setAttributes(
+								{
+									number: value
+								}
+							)
+						}
+					/>
+				</PanelRow>
+			</PanelBody>
+		</Panel>
 	);
 
 	return (

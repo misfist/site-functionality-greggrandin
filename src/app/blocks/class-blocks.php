@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param integer $number
  * @return void
  */
-function get_book_quotes( $post_id = null, $number = 2 ) : ?string {
+function get_book_quotes( $post_id = null, $number = 2 ): ?string {
 	return Blocks::get_blockquotes( $post_id, $number );
 }
 
@@ -32,7 +32,7 @@ function get_book_quotes( $post_id = null, $number = 2 ) : ?string {
  * @param integer $number
  * @return void
  */
-function render_book_quotes( $post_id = null, $number = 2  ) : void {
+function render_book_quotes( $post_id = null, $number = null ): void {
 	echo get_book_quotes( $post_id, $number );
 }
 
@@ -42,7 +42,7 @@ function render_book_quotes( $post_id = null, $number = 2  ) : void {
  * @param int $post_id
  * @return string|null
  */
-function get_book_buttons( $post_id = null ) : ?string {
+function get_book_buttons( $post_id = null ): ?string {
 	return Blocks::get_book_buttons( $post_id );
 }
 
@@ -52,7 +52,7 @@ function get_book_buttons( $post_id = null ) : ?string {
  * @param integer $post_id
  * @return void
  */
-function render_book_buttons( $post_id = null ) : void {
+function render_book_buttons( $post_id = null ): void {
 	echo get_book_buttons( $post_id );
 }
 
@@ -141,17 +141,21 @@ class Blocks extends Base {
 	 *
 	 * @return string
 	 */
-	public static function get_blockquotes( $post_id = null, $number = 2 ): ?string {
+	public static function get_blockquotes( $post_id = null, $number = 99 ): ?string {
 		global $post;
 		$post_id    = ( $post_id ) ? $post_id : $post->ID;
 		$block_name = 'core/quote';
+
+		if ( 0 === $number || '0' === $number ) {
+			return null;
+		}
 
 		if ( ! has_block( $block_name, $post_id ) ) {
 			return null;
 		}
 
 		$blocks = parse_blocks( $post->post_content );
-		$max    = $number;
+		$max    = ( null === $number || '' === $number ) ? PHP_INT_MAX : (int) $number;
 		$count  = 1;
 
 		$output = '';
@@ -175,7 +179,7 @@ class Blocks extends Base {
 	 * @param int $post_id
 	 * @return string|null
 	 */
-	public static function get_book_buttons( $post_id = null ) : ?string {
+	public static function get_book_buttons( $post_id = null ): ?string {
 		global $post;
 		$post_id    = ( $post_id ) ? $post_id : $post->ID;
 		$block_name = 'site-functionality/buy-buttons';
@@ -198,5 +202,4 @@ class Blocks extends Base {
 
 		return $output;
 	}
-
 }

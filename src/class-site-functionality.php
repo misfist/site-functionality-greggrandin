@@ -16,6 +16,7 @@ namespace Site_Functionality;
 use Site_Functionality\App\Admin\Admin_Assets;
 use Site_Functionality\App\Frontend\Frontend_Assets;
 use Site_Functionality\Common\WP_Includes\I18n;
+use Site_Functionality\App\Admin\Admin;
 use Site_Functionality\App\Post_Types\Post_Types;
 use Site_Functionality\App\Taxonomies\Taxonomies;
 use Site_Functionality\App\Blocks\Blocks;
@@ -115,6 +116,7 @@ class Site_Functionality {
 	 * @since    1.0.0
 	 */
 	protected function load_dependencies(): void {
+		$admin      = new Admin( $this->settings );
 		$post_types = new Post_Types( $this->settings );
 		$taxonomies = new Taxonomies( $this->settings );
 		$blocks     = new Blocks( $this->settings );
