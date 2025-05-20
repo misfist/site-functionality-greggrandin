@@ -27,7 +27,7 @@ jobs:
         # Folder to upload from, must end with trailing slash 
         local-dir: ./
         # Path to upload to on the server. Must end with trailing slash /
-        server-dir: gregoryg26.sg-host.com/public_html/wp-content/themes/greg-grandin/
+        server-dir: staging.greggrandin.com/public_html/wp-content/plugins/site-functionality/
         # Path and name of the state file - this file is used to track which files have been deployed
         # state-name: # optional
         # Prints which modifications will be made with current config options, but doesnt actually make any changes

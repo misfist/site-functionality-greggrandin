@@ -9,7 +9,7 @@
 use function Site_Functionality\App\Blocks\render_book_quotes;
 
 $post_id = $block->context['postId'];
-$number = isset( $attributes['number'] ) ? (int) $attributes['number'] : 2;
+$number = isset( $attributes['number'] ) ? $attributes['number'] : null;
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'data-post-id' => $post_id ) ); ?>>
 	<?php render_book_quotes( $post_id, $number ); ?>

@@ -9,8 +9,7 @@
   "description": "The book quotes.",
   "attributes": {
     "number": {
-      "type": "integer",
-      "default": 2
+      "type": "string"
     }
   },
   "usesContext": [

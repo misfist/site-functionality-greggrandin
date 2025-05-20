@@ -93,10 +93,10 @@ class Book extends Post_Type {
 				'sanitize_callback' => 'sanitize_post',
 			),
 			// '_links_to' => array(
-			// 	'label'             => __( 'Publisher Link', 'site-functionality' ),
-			// 	'type'              => 'string',
-			// 	'description'       => __( 'The publisher link.', 'site-functionality' ),
-			// 	'sanitize_callback' => 'sanitize_text_field',
+			// 'label'             => __( 'Publisher Link', 'site-functionality' ),
+			// 'type'              => 'string',
+			// 'description'       => __( 'The publisher link.', 'site-functionality' ),
+			// 'sanitize_callback' => 'sanitize_text_field',
 			// ),
 			'isbn'             => array(
 				'label'             => __( 'ISBN', 'site-functionality' ),
@@ -139,7 +139,7 @@ class Book extends Post_Type {
 				'type'              => 'string',
 				'description'       => __( 'The rating of the book.', 'site-functionality' ),
 				'sanitize_callback' => 'sanitize_text_field',
-			),
+			)
 		);
 
 		\add_action( 'init', array( $this, 'register_meta' ) );
@@ -400,14 +400,14 @@ class Book extends Post_Type {
 
 	/**
 	 * Add custom fields to search index
-	 * 
+	 *
 	 * @link https://www.relevanssi.com/user-manual/filter-hooks/relevanssi_index_custom_fields/
 	 *
-	 * @param array $custom_fields
+	 * @param array   $custom_fields
 	 * @param integer $post_id
 	 * @return array
 	 */
-	public function index_meta( array $custom_fields, int $post_id ) : array {
+	public function index_meta( array $custom_fields, int $post_id ): array {
 		$custom_fields = array_keys( $this->fields );
 		return $custom_fields;
 	}
